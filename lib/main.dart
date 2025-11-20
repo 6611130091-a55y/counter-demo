@@ -98,11 +98,26 @@ class _MyHomePageState extends State<MyHomePage> {
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
+      floatingActionButton: Row(
+  mainAxisAlignment: MainAxisAlignment.end,
+  children: [
+    FloatingActionButton(
+      onPressed: () {
+        setState(() {
+          _counter = 0;
+        });
+      },
+      tooltip: 'Reset',
+      child: const Icon(Icons.refresh),
+    ),
+    const SizedBox(width: 10),
+    FloatingActionButton(
+      onPressed: _incrementCounter,
+      tooltip: 'Increment',
+      child: const Icon(Icons.add),
+    ),
+  ],
+), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }
